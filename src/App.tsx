@@ -1,7 +1,8 @@
-import { useState , useEffect } from 'react';
+import { useState , useEffect, FC } from 'react';
+import { Display } from './Display';
 import './App.css';
 
-function App() {
+const App:FC = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
@@ -19,6 +20,7 @@ function App() {
           <label htmlFor="inputHeight">px height</label>
           <button>Generate</button>
         </form>
+        <Display />
       </main>
     </div>
   );
