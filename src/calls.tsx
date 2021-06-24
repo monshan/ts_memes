@@ -1,7 +1,8 @@
-export const getKitty = async (width: number, height: number) => {
+export const getMemes = async () => {
   try {
-    const fetchedKitty = await fetch(`http://placekitten.com/${width}/${height}`)
-    return fetchedKitty;
+    const fetched = await fetch('https://api.imgflip.com/get_memes');
+    // if (!fetched.success) throw new Error();
+    return fetched.json();
   } catch(err) {
     return err;
   }

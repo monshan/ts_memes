@@ -1,7 +1,6 @@
-import { FC } from "react";
+export const Display = ({ imgSrc }: { imgSrc: string }) => {
 
-export const Display:FC = (props) => {
   return (
-    <div>Future image container</div>
+    <img src={imgSrc} />
   )
 }

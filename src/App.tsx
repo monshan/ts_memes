@@ -1,10 +1,22 @@
 import { useState , useEffect, FC } from 'react';
+import { getMemes } from './calls';
 import { Display } from './Display';
 import './App.css';
 
 const App:FC = () => {
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [memeImg, setMemeImg] = useState('');
+
+  const randomNumber = (max: number) => {
+    return (Math.floor(Math.random() * max));
+  }
+
+  const newMeme = () => {
+    getMemes()
+      .then(res => {
+        const randomIdx = randomNumber(res.data.memes.length);
+        setMemeImg(res.data.memes[randomIdx].url);
+      })
+  }
 
   return (
     <div className="App">
@@ -13,14 +25,8 @@ const App:FC = () => {
         <p>Using TypeScript</p>
       </header>
       <main>
-        <form>
-          <input type="number" id="inputWidth" required />
-          <label htmlFor="inputWidth">px width</label>
-          <input type="number" id="inputHeight" required />
-          <label htmlFor="inputHeight">px height</label>
-          <button>Generate</button>
-        </form>
-        <Display />
+        <button onClick={() => newMeme()}>Give me a meme</button>
+        {memeImg && <Display imgSrc={memeImg}/>}
       </main>
     </div>
   );
