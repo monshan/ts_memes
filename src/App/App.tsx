@@ -33,15 +33,21 @@ const App:FC = () => {
       <main>
         <Switch>
           <Route exact path="/">
-            <p>Welcome, click around to get started</p>
+            <section>
+              <p>Welcome, click around to get started</p>
+            </section>
           </Route>
           <Route path="/generator">
-            <button onClick={() => newMeme()}>Give me a meme</button>
-            {memeImg && <Display imgSrc={memeImg}/>}
+            <section>
+              <button onClick={() => newMeme()} className="gen__btn">Give me a meme</button>
+              {memeImg && <Display imgSrc={memeImg}/>}
+            </section>
           </Route>
           <Route path="/saved_memes"></Route>
           <Route path="*">
-            <p>Dead page</p>
+            <section>
+              <p>Dead page</p>
+            </section>
           </Route>
         </Switch>
       </main>
