@@ -1,4 +1,5 @@
 import { useState , useEffect, FC } from 'react';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import { getMemes } from '../calls';
 import { Display } from '../Display/Display';
 import './App.css';
@@ -21,12 +22,28 @@ const App:FC = () => {
   return (
     <div className="App">
       <header>
-        <h1>The Kittie Grid Generator</h1>
+        <h1>A Meme Generator</h1>
         <p>Using TypeScript</p>
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/generator">Generator</NavLink>
+          <NavLink to="/saved_memes">Saved Memes</NavLink>
+        </nav>
       </header>
       <main>
-        <button onClick={() => newMeme()}>Give me a meme</button>
-        {memeImg && <Display imgSrc={memeImg}/>}
+        <Switch>
+          <Route exact path="/">
+            <p>Welcome, click around to get started</p>
+          </Route>
+          <Route path="/generator">
+            <button onClick={() => newMeme()}>Give me a meme</button>
+            {memeImg && <Display imgSrc={memeImg}/>}
+          </Route>
+          <Route path="/saved_memes"></Route>
+          <Route path="*">
+            <p>Dead page</p>
+          </Route>
+        </Switch>
       </main>
     </div>
   );
