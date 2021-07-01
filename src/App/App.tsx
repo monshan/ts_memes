@@ -1,6 +1,6 @@
 import { useState , useEffect, FC } from 'react';
-import { getMemes } from './calls';
-import { Display } from './Display';
+import { getMemes } from '../calls';
+import { Display } from '../Display/Display';
 import './App.css';
 
 const App:FC = () => {
