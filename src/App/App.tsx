@@ -25,9 +25,9 @@ const App:FC = () => {
         <h1>A Meme Generator</h1>
         <p>Using TypeScript</p>
         <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/generator">Generator</NavLink>
-          <NavLink to="/saved_memes">Saved Memes</NavLink>
+          <NavLink to="/" className="nav-link">Home</NavLink>
+          <NavLink to="/generator" className="nav-link">Generator</NavLink>
+          <NavLink to="/saved_memes" className="nav-link">Saved Memes</NavLink>
         </nav>
       </header>
       <main>
